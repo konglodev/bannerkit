@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border-color);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #fafafa;
+  --foreground: #171717;
+  --surface: #ffffff;
+  --surface-hover: #f5f5f5;
+  --border-color: #e5e5e5;
+  --primary: #f97316;
+  --primary-hover: #ea580c;
+  --primary-light: #fff7ed;
+  --secondary: #0a0a0a;
+  --muted: #737373;
+  --card: #ffffff;
+  --card-hover: #fafafa;
+  --font-inter: 'Inter', system-ui, sans-serif;
 }
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --surface: #171717;
+  --surface-hover: #262626;
+  --border-color: #262626;
+  --primary: #fb923c;
+  --primary-hover: #f97316;
+  --primary-light: #1c1207;
+  --secondary: #fafafa;
+  --muted: #a3a3a3;
+  --card: #171717;
+  --card-hover: #1e1e1e;
+}
+
+* { scrollbar-width: thin; scrollbar-color: var(--border-color) transparent; }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+.animate-slide-up { animation: slideUp 0.5s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface-hover) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.stagger-children > * { opacity: 0; animation: slideUp 0.4s ease-out forwards; }
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(n+9) { animation-delay: 0.45s; }
+
+.masonry-grid { columns: 2; column-gap: 1rem; }
+@media (min-width: 768px) { .masonry-grid { columns: 3; column-gap: 1.25rem; } }
+@media (min-width: 1024px) { .masonry-grid { columns: 4; column-gap: 1.25rem; } }
+@media (min-width: 1280px) { .masonry-grid { columns: 5; column-gap: 1.5rem; } }
+.masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+@media (min-width: 768px) { .masonry-item { margin-bottom: 1.25rem; } }
+
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.dark .glass {
+  background: rgba(23,23,23,0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.scroll-chips {
+  display: flex; overflow-x: auto; scrollbar-width: none;
+  -ms-overflow-style: none; gap: 0.5rem; padding-bottom: 4px;
+}
+.scroll-chips::-webkit-scrollbar { display: none; }
+::selection { background-color: var(--primary); color: white; }
