@@ -313,105 +313,107 @@ export default function HomePage() {
   const donationModal =
     showDonationModal && typeof document !== "undefined"
       ? createPortal(
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-        {/* Backdrop Overlay */}
-        <div
-          className="absolute inset-0 bg-background/90 backdrop-blur-md animate-fade-in"
-          onClick={() => setShowDonationModal(false)}
-        />
-
-        {/* Modal Container */}
-        <div className="relative z-10 w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl bg-card border border-border/80 shadow-2xl shadow-primary/10 animate-scale-in p-6">
-          {/* Soft Gradient glow at top */}
-          <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Close Button */}
-          <button
-            onClick={() => setShowDonationModal(false)}
-            className="absolute top-4 right-4 p-2 rounded-xl border border-border bg-surface hover:bg-surface-hover hover:border-primary/30 text-muted hover:text-foreground transition-all duration-200"
-            aria-label="Tutup"
-          >
-            <X size={16} />
-          </button>
-
-          {/* Header info */}
-          <div className="text-center space-y-2 mt-4">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider animate-pulse">
-              <Heart size={12} className="fill-primary" />
-              Donasi Pengembangan
-            </div>
-            <h3 className="text-xl font-bold tracking-tight">
-              Dukung BannerKit!
-            </h3>
-            <p className="text-muted text-xs max-w-xs mx-auto leading-relaxed">
-              Jika Anda terbantu dengan platform ini, dukungan melalui donasi
-              akan sangat berarti untuk pengembangan dan operasional platform
-              kami!
-            </p>
-          </div>
-
-          {/* QR Code Container */}
-          <div className="my-6 p-4 rounded-2xl bg-surface border border-border flex flex-col items-center justify-center relative group">
-            {DONATION_QR_CODE_URL.includes("DONATE") ? (
-              // Beautiful placeholder QR representation
-              <div className="w-48 h-48 rounded-xl bg-card border border-border/50 flex flex-col items-center justify-center p-4 text-center space-y-2">
-                <div className="relative w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary/40">
-                  <Wand2 size={28} />
-                  <div className="absolute inset-0 border border-primary/20 rounded-xl animate-ping opacity-20" />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-[10px] font-bold text-muted">QR Code</p>
-                  <p className="text-[8px] text-muted/60 leading-normal max-w-[130px] mx-auto">
-                    Scan QR Code Ini
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <div className="relative overflow-hidden rounded-xl bg-white p-2">
-                <img
-                  src={getDirectImageUrl(DONATION_QR_CODE_URL)}
-                  alt="Donation QR Code"
-                  className="w-48 h-48 object-contain select-none"
-                  onError={(e) => {
-                    // Fallback visual in case GDrive url is broken/expired
-                    e.currentTarget.style.display = "none";
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallbackDiv = document.createElement("div");
-                      fallbackDiv.className =
-                        "w-48 h-48 flex items-center justify-center text-xs text-muted bg-surface text-center p-4";
-                      fallbackDiv.innerText =
-                        "QR Code gagal dimuat. Jika platform ini bermanfaat, Anda dapat mendukung pengembangannya melalui donasi berikut : https://saweria.co/aripppjn";
-                      parent.appendChild(fallbackDiv);
-                    }
-                  }}
-                />
-              </div>
-            )}
-
-            <div className="mt-3 text-center">
-              <span className="text-[10px] font-bold tracking-widest text-muted uppercase">
-                Scan QR Saweria
-              </span>
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="flex flex-col gap-2">
-            <button
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop Overlay */}
+            <div
+              className="absolute inset-0 bg-background/90 backdrop-blur-md animate-fade-in"
               onClick={() => setShowDonationModal(false)}
-              className="w-full py-3.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-hover active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/20 text-center cursor-pointer"
-            >
-              Saya Telah Berdonasi / Tutup
-            </button>
-            <p className="text-[10px] text-muted text-center leading-normal">
-              Terima kasih atas kepedulian dan kebaikan hati Anda untuk kemajuan
-              UMKM Indonesia.
-            </p>
-          </div>
-        </div>
-      </div>,
-          document.body
+            />
+
+            {/* Modal Container */}
+            <div className="relative z-10 w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl bg-card border border-border/80 shadow-2xl shadow-primary/10 animate-scale-in p-6">
+              {/* Soft Gradient glow at top */}
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowDonationModal(false)}
+                className="absolute top-4 right-4 p-2 rounded-xl border border-border bg-surface hover:bg-surface-hover hover:border-primary/30 text-muted hover:text-foreground transition-all duration-200"
+                aria-label="Tutup"
+              >
+                <X size={16} />
+              </button>
+
+              {/* Header info */}
+              <div className="text-center space-y-2 mt-4">
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider animate-pulse">
+                  <Heart size={12} className="fill-primary" />
+                  Donasi Pengembangan
+                </div>
+                <h3 className="text-xl font-bold tracking-tight">
+                  Dukung BannerKit!
+                </h3>
+                <p className="text-muted text-xs max-w-xs mx-auto leading-relaxed">
+                  Jika Anda terbantu dengan platform ini, dukungan melalui
+                  donasi akan sangat berarti untuk pengembangan dan operasional
+                  platform kami!
+                </p>
+              </div>
+
+              {/* QR Code Container */}
+              <div className="my-6 p-4 rounded-2xl bg-surface border border-border flex flex-col items-center justify-center relative group">
+                {DONATION_QR_CODE_URL.includes("DONATE") ? (
+                  // Beautiful placeholder QR representation
+                  <div className="w-48 h-48 rounded-xl bg-card border border-border/50 flex flex-col items-center justify-center p-4 text-center space-y-2">
+                    <div className="relative w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary/40">
+                      <Wand2 size={28} />
+                      <div className="absolute inset-0 border border-primary/20 rounded-xl animate-ping opacity-20" />
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-[10px] font-bold text-muted">
+                        QR Code
+                      </p>
+                      <p className="text-[8px] text-muted/60 leading-normal max-w-[130px] mx-auto">
+                        Scan QR Code Ini
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="relative overflow-hidden rounded-xl bg-white p-2">
+                    <img
+                      src={getDirectImageUrl(DONATION_QR_CODE_URL)}
+                      alt="Donation QR Code"
+                      className="w-48 h-48 object-contain select-none"
+                      onError={(e) => {
+                        // Fallback visual in case GDrive url is broken/expired
+                        e.currentTarget.style.display = "none";
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                          const fallbackDiv = document.createElement("div");
+                          fallbackDiv.className =
+                            "w-48 h-48 flex items-center justify-center text-xs text-muted bg-surface text-center p-4";
+                          fallbackDiv.innerText =
+                            "QR Code gagal dimuat. Jika platform ini bermanfaat, Anda dapat mendukung pengembangannya melalui donasi berikut : https://saweria.co/aripppjn";
+                          parent.appendChild(fallbackDiv);
+                        }
+                      }}
+                    />
+                  </div>
+                )}
+
+                <div className="mt-3 text-center">
+                  <span className="text-[10px] font-bold tracking-widest text-muted uppercase">
+                    Scan QR Saweria
+                  </span>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col gap-2">
+                <button
+                  onClick={() => setShowDonationModal(false)}
+                  className="w-full py-3.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-hover active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/20 text-center cursor-pointer"
+                >
+                  Saya Telah Berdonasi / Tutup
+                </button>
+                <p className="text-[10px] text-muted text-center leading-normal">
+                  Terima kasih atas kepedulian dan kebaikan hati Anda untuk
+                  kemajuan UMKM Indonesia.
+                </p>
+              </div>
+            </div>
+          </div>,
+          document.body,
         )
       : null;
 
@@ -544,6 +546,7 @@ export default function HomePage() {
                       className={inputClass}
                       value={form.lengthCm || ""}
                       onChange={(e) => updateField("lengthCm", e.target.value)}
+                      placeholder="cth: 300"
                     />
                   </div>
                   <div>
@@ -553,6 +556,7 @@ export default function HomePage() {
                       className={inputClass}
                       value={form.widthCm || ""}
                       onChange={(e) => updateField("widthCm", e.target.value)}
+                      placeholder="cth: 100"
                     />
                   </div>
                 </div>
@@ -722,7 +726,7 @@ export default function HomePage() {
                 <label className={labelClass}>Catatan Tambahan</label>
                 <textarea
                   className={`${inputClass} min-h-[80px] resize-y`}
-                  placeholder="Detail tambahan for prompt..."
+                  placeholder="cth: Tambahkan list menu berikut... "
                   value={form.additionalNotes || ""}
                   onChange={(e) =>
                     updateField("additionalNotes", e.target.value)
@@ -843,7 +847,7 @@ export default function HomePage() {
                     <li>
                       • Gunakan prompt dalam bahasa Inggris untuk hasil terbaik
                     </li>
-                    <li>• Sesuaikan rasio dengan platform target Anda</li>
+                    <li>• Sesuaikan ukuran dengan kebutuhan cetak Anda</li>
                     <li>
                       • Negative prompt membantu menghindari hasil yang tidak
                       diinginkan
@@ -859,8 +863,7 @@ export default function HomePage() {
                 <div className="space-y-1">
                   <h3 className="font-bold text-muted">Belum Ada Prompt</h3>
                   <p className="text-xs text-muted/60 max-w-[200px]">
-                    Mulai isi formulir di sebelah kiri untuk melihat hasil
-                    prompt AI Anda.
+                    Mulai isi formulir untuk melihat hasil prompt AI Anda.
                   </p>
                 </div>
               </div>
