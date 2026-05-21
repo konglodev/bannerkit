@@ -18,8 +18,8 @@ export default function Footer() {
             </span>
           </div>
 
-          <p className="text-xs text-muted flex items-center gap-1">
-            Desain promo praktis untuk mendukung UMKM Indonesia.
+          <p className="text-sm text-muted flex items-center gap-1">
+            Desain AI untuk Promo UMKM Praktis.
           </p>
         </div>
       </div>
