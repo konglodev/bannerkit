@@ -18,18 +18,24 @@ export const metadata: Metadata = {
     template: "%s | BannerKit",
   },
   description:
-    "Platform inspirasi desain banner dan poster AI untuk UMKM Indonesia. Temukan dan salin prompt AI siap pakai untuk ChatGPT Image, Midjourney, Flux, dan Stable Diffusion.",
+    "Platform Prompt Generator Desain AI untuk UMKM Indonesia. Temukan dan salin prompt AI siap pakai untuk ChatGPT Image, Midjourney, Flux, dan Stable Diffusion.",
   keywords: [
     "banner UMKM",
     "poster AI",
     "prompt generator",
     "desain UMKM",
-    "midjourney prompt",
+    "chat gpt prompt",
     "AI banner Indonesia",
   ],
+  icons: {
+    icon: [{ url: "/fav.png", type: "image/png" }],
+    shortcut: "/fav.png",
+    apple: "/fav.png",
+  },
   openGraph: {
     title: "BannerKit — Inspirasi Banner AI untuk UMKM",
-    description: "Temukan inspirasi banner & poster AI untuk bisnis UMKM Indonesia",
+    description:
+      "Temukan inspirasi banner & poster AI untuk bisnis UMKM Indonesia",
     type: "website",
     locale: "id_ID",
   },
@@ -41,7 +47,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html
+      lang="id"
+      className={`${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>
           <Navbar />
@@ -52,8 +62,8 @@ export default function RootLayout({
             toastOptions={{
               duration: 3000,
               style: {
-                borderRadius: '12px',
-                fontSize: '14px',
+                borderRadius: "12px",
+                fontSize: "14px",
               },
             }}
           />
