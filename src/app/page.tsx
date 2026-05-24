@@ -307,114 +307,201 @@ export default function HomePage() {
     form.secondaryColors ||
     selectedTemplateId;
 
+  // const inputClass =
+  //   "w-full px-4 py-3 rounded-xl bg-surface border border-border text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all";
+  // const labelClass = "block text-sm font-medium mb-1.5";
+  // const donationModal =
+  //   showDonationModal && typeof document !== "undefined"
+  //     ? createPortal(
+  //         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  //           {/* Backdrop Overlay */}
+  //           <div
+  //             className="absolute inset-0 bg-background/90 backdrop-blur-md animate-fade-in"
+  //             onClick={() => setShowDonationModal(false)}
+  //           />
+
+  //           {/* Modal Container */}
+  //           <div className="relative z-10 w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl bg-card border border-border/80 shadow-2xl shadow-primary/10 animate-scale-in p-6">
+  //             {/* Soft Gradient glow at top */}
+  //             <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+  //             {/* Close Button */}
+  //             <button
+  //               onClick={() => setShowDonationModal(false)}
+  //               className="absolute top-4 right-4 p-2 rounded-xl border border-border bg-surface hover:bg-surface-hover hover:border-primary/30 text-muted hover:text-foreground transition-all duration-200"
+  //               aria-label="Tutup"
+  //             >
+  //               <X size={16} />
+  //             </button>
+
+  //             {/* Header info */}
+  //             <div className="text-center space-y-2 mt-4">
+  //               <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider animate-pulse">
+  //                 <Heart size={12} className="fill-primary" />
+  //                 Donasi Pengembangan
+  //               </div>
+  //               <h3 className="text-xl font-bold tracking-tight">
+  //                 Dukung BannerKit!
+  //               </h3>
+  //               <p className="text-muted text-xs max-w-xs mx-auto leading-relaxed">
+  //                 Jika Anda terbantu dengan platform ini, dukungan melalui
+  //                 donasi akan sangat berarti untuk pengembangan dan operasional
+  //                 platform kami!
+  //               </p>
+  //             </div>
+
+  //             {/* QR Code Container */}
+  //             <div className="my-6 p-4 rounded-2xl bg-surface border border-border flex flex-col items-center justify-center relative group">
+  //               {DONATION_QR_CODE_URL.includes("DONATE") ? (
+  //                 // Beautiful placeholder QR representation
+  //                 <div className="w-48 h-48 rounded-xl bg-card border border-border/50 flex flex-col items-center justify-center p-4 text-center space-y-2">
+  //                   <div className="relative w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary/40">
+  //                     <Wand2 size={28} />
+  //                     <div className="absolute inset-0 border border-primary/20 rounded-xl animate-ping opacity-20" />
+  //                   </div>
+  //                   <div className="space-y-1">
+  //                     <p className="text-[10px] font-bold text-muted">
+  //                       QR Code
+  //                     </p>
+  //                     <p className="text-[8px] text-muted/60 leading-normal max-w-[130px] mx-auto">
+  //                       Scan QR Code Ini
+  //                     </p>
+  //                   </div>
+  //                 </div>
+  //               ) : (
+  //                 <div className="relative overflow-hidden rounded-xl bg-white p-2">
+  //                   <img
+  //                     src={getDirectImageUrl(DONATION_QR_CODE_URL)}
+  //                     alt="Donation QR Code"
+  //                     className="w-48 h-48 object-contain select-none"
+  //                     onError={(e) => {
+  //                       // Fallback visual in case GDrive url is broken/expired
+  //                       e.currentTarget.style.display = "none";
+  //                       const parent = e.currentTarget.parentElement;
+  //                       if (parent) {
+  //                         const fallbackDiv = document.createElement("div");
+  //                         fallbackDiv.className =
+  //                           "w-48 h-48 flex items-center justify-center text-xs text-muted bg-surface text-center p-4";
+  //                         fallbackDiv.innerText =
+  //                           "QR Code gagal dimuat. Jika platform ini bermanfaat, Anda dapat mendukung pengembangannya melalui donasi berikut : https://saweria.co/aripppjn";
+  //                         parent.appendChild(fallbackDiv);
+  //                       }
+  //                     }}
+  //                   />
+  //                 </div>
+  //               )}
+
+  //               <div className="mt-3 text-center">
+  //                 <span className="text-[10px] font-bold tracking-widest text-muted uppercase">
+  //                   Scan QR Saweria
+  //                 </span>
+  //               </div>
+  //             </div>
+
+  //             {/* Actions */}
+  //             <div className="flex flex-col gap-2">
+  //               <button
+  //                 onClick={() => setShowDonationModal(false)}
+  //                 className="w-full py-3.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-hover active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/20 text-center cursor-pointer"
+  //               >
+  //                 Saya Telah Berdonasi / Tutup
+  //               </button>
+  //               <p className="text-[10px] text-muted text-center leading-normal">
+  //                 Terima kasih atas kepedulian dan kebaikan hati Anda untuk
+  //                 kemajuan UMKM Indonesia.
+  //               </p>
+  //             </div>
+  //           </div>
+  //         </div>,
+  //         document.body,
+  //       )
+  //     : null;
+
   const inputClass =
     "w-full px-4 py-3 rounded-xl bg-surface border border-border text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all";
   const labelClass = "block text-sm font-medium mb-1.5";
+
   const donationModal =
     showDonationModal && typeof document !== "undefined"
       ? createPortal(
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            {/* Backdrop Overlay */}
-            <div
-              className="absolute inset-0 bg-background/90 backdrop-blur-md animate-fade-in"
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop Overlay */}
+          <div
+            className="absolute inset-0 bg-background/90 backdrop-blur-md animate-fade-in"
+            onClick={() => setShowDonationModal(false)}
+          />
+
+          {/* Modal Container */}
+          <div className="relative z-10 w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl bg-card border border-border/80 shadow-2xl shadow-primary/10 animate-scale-in p-6">
+            {/* Soft Gradient glow at top */}
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Close Button */}
+            <button
               onClick={() => setShowDonationModal(false)}
-            />
+              className="absolute top-4 right-4 p-2 rounded-xl border border-border bg-surface hover:bg-surface-hover hover:border-primary/30 text-muted hover:text-foreground transition-all duration-200"
+              aria-label="Tutup"
+            >
+              <X size={16} />
+            </button>
 
-            {/* Modal Container */}
-            <div className="relative z-10 w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl bg-card border border-border/80 shadow-2xl shadow-primary/10 animate-scale-in p-6">
-              {/* Soft Gradient glow at top */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+            {/* Header info */}
+            <div className="text-center space-y-2 mt-4">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#be1e2d]/10 text-[#be1e2d] text-xs font-bold uppercase tracking-wider">
+                <Heart size={12} className="fill-[#be1e2d]" />
+                Donasi Trakteer
+              </div>
+              <h3 className="text-xl font-bold tracking-tight">
+                Dukung BannerKit!
+              </h3>
+              <p className="text-muted text-xs max-w-xs mx-auto leading-relaxed">
+                Jika Anda terbantu dengan platform ini, dukungan melalui
+                Trakteer akan sangat berarti untuk pengembangan dan operasional
+                platform kami!
+              </p>
+            </div>
 
-              {/* Close Button */}
-              <button
-                onClick={() => setShowDonationModal(false)}
-                className="absolute top-4 right-4 p-2 rounded-xl border border-border bg-surface hover:bg-surface-hover hover:border-primary/30 text-muted hover:text-foreground transition-all duration-200"
-                aria-label="Tutup"
+            {/* Trakteer Button Integration */}
+            <div className="my-6 p-2 rounded-2xl bg-surface border border-border flex flex-col items-center justify-center">
+              <a
+                href="https://trakteer.id/aripppjn_/tip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#be1e2d] text-white font-bold text-base hover:bg-[#a01624] active:scale-[0.99] transition-all duration-200 shadow-lg shadow-[#be1e2d]/20 text-center"
               >
-                <X size={16} />
-              </button>
+                {/* Trakteer Icon Custom Placeholder (Menggunakan Wand2 bawaan Anda atau Icon lain) */}
+                <img
+                  src="https://edge-cdn.trakteer.id/images/embed/trbtn-icon.png?v=14-05-2025"
+                  alt="Trakteer Icon"
+                  className="w-5 h-5 object-contain invert animate-bounce"
+                />
+                Dukung Saya di Trakteer
+              </a>
 
-              {/* Header info */}
-              <div className="text-center space-y-2 mt-4">
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider animate-pulse">
-                  <Heart size={12} className="fill-primary" />
-                  Donasi Pengembangan
-                </div>
-                <h3 className="text-xl font-bold tracking-tight">
-                  Dukung BannerKit!
-                </h3>
-                <p className="text-muted text-xs max-w-xs mx-auto leading-relaxed">
-                  Jika Anda terbantu dengan platform ini, dukungan melalui
-                  donasi akan sangat berarti untuk pengembangan dan operasional
-                  platform kami!
-                </p>
-              </div>
-
-              {/* QR Code Container */}
-              <div className="my-6 p-4 rounded-2xl bg-surface border border-border flex flex-col items-center justify-center relative group">
-                {DONATION_QR_CODE_URL.includes("DONATE") ? (
-                  // Beautiful placeholder QR representation
-                  <div className="w-48 h-48 rounded-xl bg-card border border-border/50 flex flex-col items-center justify-center p-4 text-center space-y-2">
-                    <div className="relative w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary/40">
-                      <Wand2 size={28} />
-                      <div className="absolute inset-0 border border-primary/20 rounded-xl animate-ping opacity-20" />
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-[10px] font-bold text-muted">
-                        QR Code
-                      </p>
-                      <p className="text-[8px] text-muted/60 leading-normal max-w-[130px] mx-auto">
-                        Scan QR Code Ini
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="relative overflow-hidden rounded-xl bg-white p-2">
-                    <img
-                      src={getDirectImageUrl(DONATION_QR_CODE_URL)}
-                      alt="Donation QR Code"
-                      className="w-48 h-48 object-contain select-none"
-                      onError={(e) => {
-                        // Fallback visual in case GDrive url is broken/expired
-                        e.currentTarget.style.display = "none";
-                        const parent = e.currentTarget.parentElement;
-                        if (parent) {
-                          const fallbackDiv = document.createElement("div");
-                          fallbackDiv.className =
-                            "w-48 h-48 flex items-center justify-center text-xs text-muted bg-surface text-center p-4";
-                          fallbackDiv.innerText =
-                            "QR Code gagal dimuat. Jika platform ini bermanfaat, Anda dapat mendukung pengembangannya melalui donasi berikut : https://saweria.co/aripppjn";
-                          parent.appendChild(fallbackDiv);
-                        }
-                      }}
-                    />
-                  </div>
-                )}
-
-                <div className="mt-3 text-center">
-                  <span className="text-[10px] font-bold tracking-widest text-muted uppercase">
-                    Scan QR Saweria
-                  </span>
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="flex flex-col gap-2">
-                <button
-                  onClick={() => setShowDonationModal(false)}
-                  className="w-full py-3.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-hover active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/20 text-center cursor-pointer"
-                >
-                  Saya Telah Berdonasi / Tutup
-                </button>
-                <p className="text-[10px] text-muted text-center leading-normal">
-                  Terima kasih atas kepedulian dan kebaikan hati Anda untuk
-                  kemajuan UMKM Indonesia.
-                </p>
+              <div className="mt-3 text-center">
+                <span className="text-[10px] font-bold tracking-widest text-muted uppercase">
+                  Klik tombol di atas untuk membuka Trakteer
+                </span>
               </div>
             </div>
-          </div>,
-          document.body,
-        )
+
+            {/* Actions */}
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => setShowDonationModal(false)}
+                className="w-full py-3.5 rounded-xl border border-border bg-surface hover:bg-surface-hover text-foreground font-semibold text-sm active:scale-[0.98] transition-all duration-200 text-center cursor-pointer"
+              >
+                Tutup Halaman
+              </button>
+              <p className="text-[10px] text-muted text-center leading-normal">
+                Terima kasih atas kepedulian dan kebaikan hati Anda untuk
+                kemajuan UMKM Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>,
+        document.body,
+      )
       : null;
 
   return (
@@ -805,11 +892,10 @@ export default function HomePage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`Buka ${platform.name}`}
-                            className={`group flex min-h-14 items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-all active:scale-[0.99] ${
-                              platform.recommended
+                            className={`group flex min-h-14 items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-all active:scale-[0.99] ${platform.recommended
                                 ? "border-primary bg-primary text-white shadow-lg shadow-primary/20 hover:bg-primary-hover"
                                 : "border-border bg-surface hover:border-primary/40 hover:bg-surface-hover"
-                            }`}
+                              }`}
                           >
                             <span className="min-w-0">
                               <span className="flex items-center gap-1.5 text-sm font-bold">
